@@ -7,12 +7,11 @@
             <th scope="col">Adresse</th>
             <th scope="col">Ville</th>
             <th scope="col">Effectif</th>
-            <th scope="col">Liste de l'effectif</th>
         </tr>
     </thead>
     <tbody>
 @foreach ($pharmacies as $p)
-    <tr>
+    <tr onclick={{route('effectifInPharmacie', $p->PHARCode)}}>
         <th scope="row">{{$p->PHARCode}}</th>
         <td>{{$p->Adresse}}</td>
         <td>{{$p->Ville}}</td>

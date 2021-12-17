@@ -34,7 +34,7 @@ Route::get("/pharmaciens", function () {
 Route::get('/pharmacies/{PHARCode}', function ($code) {
     $pharmaciens = \App\Http\Controllers\PharmacienController::findByPharmacieId($code);
     return view('effectifInPharmacie', ["pharmaciens" => $pharmaciens]);
-})->where(["PHARCode" => "P[0-9]{1,}"])->name('effectifInPharmacie');
+})->where(["PHARCode" => "P[0-9]{3,}"])->name('effectifInPharmacie');
 
 /*Route::get("/pompier/{NumCaserne}", function ($numCaserne) {
     $pompiers = \App\Models\Pompiers::findByCaserneId($numCaserne);

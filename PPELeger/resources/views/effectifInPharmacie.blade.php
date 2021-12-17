@@ -1,5 +1,5 @@
 @include('header')
-
+<a href={{route('pharmacies')}}><button class="btn btn-outline-warning">Return to main page</button></a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,7 +13,7 @@
     <tbody>
 @foreach ($pharmaciens as $p)
     <tr>
-        <th scope="row">{{$p->PHCode}}</th>
+        <th scope="row">{{$p->PHNum}}</th>
         <td>{{$p->Nom}}</td>
         <td>{{$p->Prenom}}</td>
         <td>{{$p->Email}}</td>

@@ -21,10 +21,5 @@ class Pharmacien extends Model
     public function showPharmaciens() {
         $pharmaciens = DB::table('PHARMACIEN')->get();
         return $pharmaciens;
-    }
-
-    public function Pharmacie() {
-        return $this->hasOne(Pharmacie::class, 'PHARCode', 'PHARCode');
-    }
-    
+    }    
 }
