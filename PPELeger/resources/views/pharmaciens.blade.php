@@ -1,7 +1,5 @@
 @include('header')
 
-@include('header')
-
 <table class="table table-striped">
     <thead>
         <tr>
@@ -10,7 +8,7 @@
             <th scope="col">Prénom</th>
             <th scope="col">Email</th>
             <th scope="col">Telephone</th>
-            <th scope="col">PHARCode</th>
+            <th scope="col">Pharmacie</th>
         </tr>
     </thead>
     <tbody>

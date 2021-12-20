@@ -25,3 +25,32 @@
     <title>Client Léger</title>
 </head>
 <body>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+              
+            <ul class="nav col-16 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href={{route('welcome')}} class="nav-link px-16 link-secondary">Home Page</a></li>
+                <li><a href={{route('pharmacies')}} class="nav-link px-16 link-dark">Pharmacies</a></li>
+                <li><a href={{route('pharmaciens')}} class="nav-link px-16 link-dark">Pharmaciens</a></li>
+                <li><a href={{route('medicaments')}} class="nav-link px-16 link-dark">Médicaments</a></li>
+                <li><a href={{route('clients')}} class="nav-link px-16 link-dark">Clients</a></li>
+                <li><a href={{route('commandes')}} class="nav-link px-16 link-dark">Commandes</a></li>
+                <li><a href={{route('medecins')}} class="nav-link px-16 link-dark">Médecins</a></li>
+                <li><a href={{route('production')}} class="nav-link px-16 link-dark">Production</a></li>
+                <li><a href={{route('stocks')}} class="nav-link px-16 link-dark">Stocks</a></li>
+            </ul>
+            @if (Route::has('login'))
+            <div class="col-md-3 text-end">
+                @auth
+                        <a href="{{ url('/dashboard') }}"><button type="button" class="btn btn-outline-primary">Dashboard</button></a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                @endauth
+            </div>
+            @endif
+        </header>
+    </div>

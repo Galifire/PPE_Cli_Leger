@@ -4,22 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class Pharmacien extends Model
+class Medecins extends Model
 {
     use HasFactory;
 
-    protected $table = 'PHARMACIEN';
-    protected $primaryKey = 'PHNum';
+    protected $table = 'MEDECINS';
+    protected $primaryKey = 'MEDNum';
     protected $keyType = "int";
 
     public $incrementing = true;
 
     protected $connection = 'mysql';
 
-    public function showPharmaciens() {
-        $pharmaciens = DB::table('PHARMACIEN')->get();
-        return $pharmaciens;
-    }    
+    public function showMedecins() {
+        $meds = DB::table('MEDECINS')->get();
+        return $meds;
+    }
 }
