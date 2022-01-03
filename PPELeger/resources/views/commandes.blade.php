@@ -1,5 +1,4 @@
 @include('header')
-
 <table class="table table-striped">
     <thead>
         <tr>

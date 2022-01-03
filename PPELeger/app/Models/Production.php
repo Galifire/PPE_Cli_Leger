@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Production extends Model
 {
+    protected $table = 'PRODUCTION';
+
+    protected $primaryKey = ['MEDICCode', 'DateProd'];
+    public $incrementing = false;
+
+    protected $connection = 'mysql';
     use HasFactory;
 
     public function medicaments() {

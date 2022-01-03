@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medicaments extends Model
 {
-    protected $table = 'Medicaments';
+    protected $table = 'MEDICAMENTS';
 
     protected $primaryKey = 'MEDICCode';
     public $incrementing = false;
 
-    protected $connection = 'sqlite';
+    protected $connection = 'mysql';
     use HasFactory;
 }

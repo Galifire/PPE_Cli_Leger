@@ -9,8 +9,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    </script>
+    
     <style>
         body {
             margin-top: 50px;
@@ -20,6 +19,26 @@
         }
         table {
             text-align: center;
+        }
+
+        #topBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(220, 220, 220); /* Set a background color */
+            color: rgb(255, 255, 255); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10%; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+        #topBtn:hover {
+            background-color: rgb(190, 190, 190); /* Add a dark-grey background on hover */
         }
     </style>
     <title>Client Léger</title>

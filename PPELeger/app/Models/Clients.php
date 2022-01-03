@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clients extends Model
 {
-    protected $table = 'Clients';
+    protected $table = 'CLIENTS';
 
     protected $primaryKey = 'CLINum';
     public $incrementing = true;
 
-    protected $connection = 'sqlite';
+    protected $connection = 'mysql';
     protected $keyType = 'int';
     use HasFactory;
 

@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stocks extends Model
 {
-    protected $table = 'Stocks';
+    protected $table = 'STOCKS';
 
     protected $primaryKey = ['PHARCode', 'MEDICCode'];
     public $incrementing = false;
 
-    protected $connection = 'sqlite';
+    protected $connection = 'mysql';
 
     use HasFactory;
 

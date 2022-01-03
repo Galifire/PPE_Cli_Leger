@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commandes extends Model
 {
-    protected $table = 'Commandes';
+    protected $table = 'COMMANDES';
 
     protected $primaryKey = ['MEDICCode', 'MEDNum', 'CLINum', 'DateCde'];
     public $incrementing = false;
 
-    protected $connection = 'sqlite';
+    protected $connection = 'mysql';
 
     use HasFactory;
 
