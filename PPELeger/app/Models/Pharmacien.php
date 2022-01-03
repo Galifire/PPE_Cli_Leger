@@ -4,27 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Pharmacien extends Model
 {
-    use HasFactory;
+    protected $table = 'Pharmacien';
 
-    protected $table = 'PHARMACIEN';
-    protected $primaryKey = 'PHNum';
-    protected $keyType = "int";
-
+    protected $primaryKey = 'PHARNum';
     public $incrementing = true;
 
-    protected $connection = 'mysql';
+    protected $connection = 'sqlite';
+    protected $keyType = 'int';
+    use HasFactory;
 
-    public function showPharmaciens() {
-        $pharmaciens = DB::table('PHARMACIEN')->get();
-        return $pharmaciens;
-    }
-
-    public function findByPharmacieId(string $code) {
-        $pharmaciens = DB::table('PHARMACIEN')->where('PHARCode', $code)->get();
-        return $pharmaciens;
+    public function pharmacies() {
+        return $this->hasOne(Pharmacie::class, 'PHARCode', 'PHARCode');
     }
 }

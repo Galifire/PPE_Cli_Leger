@@ -4,23 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class Stocks extends Model
 {
-    use HasFactory;
+    protected $table = 'Stocks';
 
-    protected $table = 'STOCKS';
-    protected $primaryKey = 'PHARCode';
-    protected $keyType = "string";
-
+    protected $primaryKey = ['PHARCode', 'MEDICCode'];
     public $incrementing = false;
 
-    protected $connection = 'mysql';
+    protected $connection = 'sqlite';
 
-    public function showStocks() {
-        $stocks = DB::table('STOCKS')->get();
-        return $stocks;
+    use HasFactory;
+
+    public function pharmacies() {
+        return $this->belongsTo(Pharmacie::class, 'PHARCode', 'PHARCode');
+    }
+
+    public function medicaments() {
+        return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
     }
 }

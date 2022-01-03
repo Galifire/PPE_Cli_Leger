@@ -4,22 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Medicaments extends Model
 {
-    use HasFactory;
+    protected $table = 'Medicaments';
 
-    protected $table = 'MEDICAMENTS';
-    protected $primaryKey = 'MedicCode';
-    protected $keyType = "string";
-
+    protected $primaryKey = 'MEDICCode';
     public $incrementing = false;
 
-    protected $connection = 'mysql';
-
-    public function showMedics() {
-        $medic = DB::table('MEDICAMENTS')->get();
-        return $medic;
-    }
+    protected $connection = 'sqlite';
+    use HasFactory;
 }

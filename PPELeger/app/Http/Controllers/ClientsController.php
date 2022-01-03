@@ -6,4 +6,5 @@ use Illuminate\Http\Request;
 
 class ClientsController extends Controller
 {
+    //
 }
