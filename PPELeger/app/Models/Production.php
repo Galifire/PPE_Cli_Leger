@@ -15,7 +15,7 @@ class Production extends Model
     protected $connection = 'mysql';
     use HasFactory;
 
-    public function medicaments() {
+    public function Medicament() {
         return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
     }
 }

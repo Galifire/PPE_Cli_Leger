@@ -8,8 +8,14 @@
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        $(document).ready(function($) {
+            $(".table-row").click(function() {
+                window.document.location = $(this).data("href");
+            });
+        });
+    </script>
+
     <style>
         body {
             margin-top: 50px;
@@ -29,16 +35,22 @@
             z-index: 99; /* Make sure it does not overlap */
             border: none; /* Remove borders */
             outline: none; /* Remove outline */
-            background-color: rgb(220, 220, 220); /* Set a background color */
+            background-color: rgb(205, 205, 205); /* Set a background color */
             color: rgb(255, 255, 255); /* Text color */
             cursor: pointer; /* Add a mouse pointer on hover */
             padding: 15px; /* Some padding */
-            border-radius: 10%; /* Rounded corners */
+            border-radius: 100%; /* Rounded corners */
             font-size: 18px; /* Increase font size */
+            height: 72px;
+            width: 72px;
         }
 
         #topBtn:hover {
-            background-color: rgb(190, 190, 190); /* Add a dark-grey background on hover */
+            background-color: rgb(175, 175, 175); /* Add a dark-grey background on hover */
+        }
+
+        .table-row{
+            cursor:pointer;
         }
     </style>
     <title>Client Léger</title>

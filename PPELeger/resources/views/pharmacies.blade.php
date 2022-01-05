@@ -15,8 +15,11 @@
         <th scope="row">{{$p->PHARCode}}</th>
         <td>{{$p->Adresse}}</td>
         <td>{{$p->Ville}}</td>
-        <td>{{$p->Effectif}}</td>
-        <td><a href={{route('effectifInPharmacie', $p->PHARCode)}}><button type="button" class="btn btn-outline-success">Show List</button></a></td>
+        <td>
+            <a href={{route('effectifInPharmacie', $p->PHARCode)}}>
+                <button type="button" class="btn btn-outline-success">{{$p->Effectif}}</button>
+            </a>
+        </td>
 @endforeach
     </tbody>
 </table>

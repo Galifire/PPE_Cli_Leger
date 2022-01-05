@@ -16,11 +16,11 @@ class Stocks extends Model
 
     use HasFactory;
 
-    public function pharmacies() {
+    public function Pharmacie() {
         return $this->belongsTo(Pharmacie::class, 'PHARCode', 'PHARCode');
     }
 
-    public function medicaments() {
+    public function Medicament() {
         return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
     }
 }

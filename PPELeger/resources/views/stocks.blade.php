@@ -11,10 +11,12 @@
     <tbody>
 @foreach ($stocks as $s)
     <tr>
-        <th scope="row">{{$s->PHARCode}}</th>
-        <td>{{$s->MEDICCode}}</td>
+        <td>{{$s->PHARCode}}, {{$s->Pharmacie->Ville}}</td>
+        <td>{{$s->Medicament->Nom}}</td>
         <td>{{$s->Qte}}</td>
     <tr>
 @endforeach
     </tbody>
 </table>
+<button onclick="topFunction()" id="topBtn" title="topBtn">^</button>
+@include('footer')

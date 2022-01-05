@@ -16,7 +16,7 @@ class Pharmacien extends Model
     protected $keyType = 'int';
     use HasFactory;
 
-    public function pharmacies() {
+    public function Pharmacie() {
         return $this->hasOne(Pharmacie::class, 'PHARCode', 'PHARCode');
     }
 }

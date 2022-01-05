@@ -7,7 +7,7 @@
             <th scope="col">Nom</th>
             <th scope="col">Restrictions</th>
             <th scope="col">Caractéristiques</th>
-            <th scope="col">Délai de production</th>
+            <th scope="col">Délai de production (jours)</th>
         </tr>
     </thead>
     <tbody>
@@ -22,3 +22,5 @@
 @endforeach
     </tbody>
 </table>
+<button onclick="topFunction()" id="topBtn" title="topBtn">^</button>
+@include('footer')

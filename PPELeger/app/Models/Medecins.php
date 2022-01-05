@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medecins extends Model
 {
-    protected $table = 'MEDICAMENTS';
+    protected $table = 'MEDECINS';
 
     protected $primaryKey = 'MEDNum';
     public $incrementing = true;

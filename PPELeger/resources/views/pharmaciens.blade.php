@@ -19,8 +19,10 @@
         <td>{{$p->Prenom}}</td>
         <td>{{$p->Email}}</td>
         <td>{{$p->Telephone}}</td>
-        <td>{{$p->PHARCode}}</td>
+        <td>{{$p->PHARCode}}, {{$p->Pharmacie->Ville}}</td>
     <tr>
 @endforeach
     </tbody>
 </table>
+<button onclick="topFunction()" id="topBtn" title="topBtn">^</button>
+@include('footer')

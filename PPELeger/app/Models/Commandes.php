@@ -16,15 +16,15 @@ class Commandes extends Model
 
     use HasFactory;
 
-    public function medicaments() {
+    public function Medicament() {
         return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
     }
 
-    public function medecins() {
+    public function Medecin() {
         return $this->belongsTo(Medecins::class, 'MEDNum', 'MEDNum');
     }
 
-    public function clients() {
+    public function Client() {
         return $this->belongsTo(Clients::class, 'CLINum', 'CLINum');
     }
 

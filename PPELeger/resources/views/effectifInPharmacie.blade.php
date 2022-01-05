@@ -22,3 +22,5 @@
 @endforeach
     </tbody>
 </table>
+<button onclick="topFunction()" id="topBtn" title="topBtn">^</button>
+@include('footer')

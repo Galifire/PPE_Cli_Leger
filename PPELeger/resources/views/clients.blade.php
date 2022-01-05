@@ -20,7 +20,47 @@
         <td>{{$c->Adresse}}</td>
         <td>{{$c->Email}}</td>
         <td>{{$c->Telephone}}</td>
+        <td>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#clientModal">
+                Edit
+            </button>
+            <div class="modal fade" id="clientModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                            <div class="modal-body">
+                                <label>CLINum : </label>
+                                <input id="id" value={{$c->CLINum}} disabled><br><br>
+
+                                <label>Nom : </label>
+                                <input id="nom" value={{$c->Nom}}><br><br>
+
+                                <label>Prénom : </label>
+                                <input id="prenom" value={{$c->Prenom}}><br><br>
+
+                                <label>Adresse : </label>
+                                <input id="Adresse" value={{$c->Adresse}}><br><br>
+
+                                <label>Email : </label>
+                                <input id="Email" value={{$c->Email}}><br><br>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
     <tr>
 @endforeach
     </tbody>
 </table>
+
+
+
+<button onclick="topFunction()" id="topBtn" title="topBtn">^</button>
+@include('footer')
