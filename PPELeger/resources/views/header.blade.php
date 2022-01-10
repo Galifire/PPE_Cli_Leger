@@ -35,18 +35,13 @@
             z-index: 99; /* Make sure it does not overlap */
             border: none; /* Remove borders */
             outline: none; /* Remove outline */
-            background-color: rgb(205, 205, 205); /* Set a background color */
-            color: rgb(255, 255, 255); /* Text color */
+            background-color: rgb(250,250,250);
             cursor: pointer; /* Add a mouse pointer on hover */
             padding: 15px; /* Some padding */
-            border-radius: 100%; /* Rounded corners */
+            border-radius: 50%; /* Rounded corners */
             font-size: 18px; /* Increase font size */
-            height: 72px;
-            width: 72px;
-        }
-
-        #topBtn:hover {
-            background-color: rgb(175, 175, 175); /* Add a dark-grey background on hover */
+            height: 70px;
+            width: 70px;
         }
 
         .table-row{
@@ -75,10 +70,13 @@
                 @auth
                         <a href="{{ url('/dashboard') }}"><button type="button" class="btn btn-outline-primary">Dashboard</button></a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">
+                            <button type="button" class="btn btn-outline-primary">Log in</button>
+                        </a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">
+                                <button type="button" class="btn btn-outline-primary">Register</button>
+                            </a>
                         @endif
                 @endauth
             </div>

@@ -12,7 +12,7 @@ class ClientsController extends Controller
     }
 
     public function update($num, Request $request) {
-        $client = Client::where('CLINum', $num)
+        $client = Clients::where('CLINum', $num)
         ->update('Nom', $request->Nom)
         ->update('Prenom', $request->Prenom)
         ->update('Adresse', $request->Adresse)
@@ -21,26 +21,26 @@ class ClientsController extends Controller
     }
 
     public function store(Request $request) {
-        $client = new Client();
-        $client->CLINum = $request->CLINum;
-        $client->Nom = $request->Nom;
-        $client->Prenom = $request->Prenom;
-        $client->Adresse = $request->Adresse;
-        $client->Email = $request->Email;
-        $client->save();
+        $res = Clients::insert([
+            'CLINum' => $_POST['CLINum'],
+            'Nom' => $_POST['Nom'],
+            'Prenom' => $_POST['Prenom'],
+            'Adresse' => $_POST['Adresse'],
+            'Email' => $_POST['Email']
+        ]);
     }
 
-    public function remove($num) {
-        $client = Client::where('CLINum', $num)->get();
+    public function remove(Request $request) {
+        $client = Clients::where('CLINum', $num)->get();
         $client->delete();
     }
 
     public function findById($id) {
-        $client = Client::where('CLINum', $id)->get();
+        $client = Clients::where('CLINum', $id)->get();
         return $client;
     }
 
     public function count() {
-        return Client::count();
+        return Clients::count();
     }
 }

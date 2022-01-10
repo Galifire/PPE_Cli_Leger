@@ -39,6 +39,15 @@ Route::get('/pharmacies/{PHARCode}', function ($code) {
     return view('effectifInPharmacie', ["pharmaciens" => $pharmaciens]);
 })->where(["PHARCode" => "P[0-9]{3,}"])->middleware(['auth'])->name('effectifInPharmacie');
 
+Route::get('/clients/edit/{CLINum}', function ($num) {
+    $client = \App\Http\Controllers\ClientsController::findById($num);
+    return view('clientEdit', ["client" => $client]);
+})->middleware(['auth'])->name('clientEdit');
+
+Route::get('/clients/new', function () {
+    return view('clientNew');
+})->middleware(['auth'])->name('clientNew');
+
 Route::get('/medicaments', function () {
     $medics = \App\Http\Controllers\MedicamentsController::show();
     return view('medicaments', ["medics" => $medics]);
