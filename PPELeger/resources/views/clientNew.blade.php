@@ -1,5 +1,5 @@
 @include('header')
-<div>
+<div class="form">
     <form method="POST">
         <label>CLINum : </label>
         <input name="CLINum"><br><br>
@@ -18,7 +18,7 @@
         
         <div class="footer">
             <a href={{route('clients')}}><button class="btn btn-outline-danger">Cancel</button></a>
-            <a href={{route('clients')}}><button type="submit" class="btn btn-success">Validate</button></a>
+            <a href={{route('clients')}}><button type="submit" class="btn btn-success" onclick={{\App\Http\Controllers\ClientsController::store($_POST)}}>Validate</button></a>
         </div>
     </form>
 </div>

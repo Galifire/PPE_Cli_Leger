@@ -10,4 +10,6 @@ class CommandesController extends Controller
     public function show() {
         return Commandes::all();
     }
+
+    public function store() {}
 }

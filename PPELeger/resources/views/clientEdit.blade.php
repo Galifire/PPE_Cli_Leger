@@ -23,7 +23,7 @@
 
         <div class="footer">
             <a href={{route('clients')}}><button class="btn btn-outline-danger">Cancel</button></a>
-            <a href={{route('clients')}}><button type="submit" class="btn btn-success">Validate</button></a>
+            <a href={{route('clients')}}><button type="submit" class="btn btn-success" onclick={{\App\Http\Controllers\ClientsController::update($c->CLINum, $_POST)}}>Validate</button></a>
         </div>
     </form>
 </div>
