@@ -9,8 +9,8 @@ class Stocks extends Model
 {
     protected $table = 'STOCKS';
 
-    protected $primaryKey = ['PHARNum', 'MEDICNum'];
-    public $incrementing = false;
+    protected $primaryKey = 'StockNum';
+    public $incrementing = true;
 
     protected $connection = 'mysql';
     public $timestamps = false;

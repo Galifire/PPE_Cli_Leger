@@ -9,8 +9,8 @@ class Production extends Model
 {
     protected $table = 'PRODUCTION';
 
-    protected $primaryKey = ['MEDICNum', 'DateProd'];
-    public $incrementing = false;
+    protected $primaryKey = 'PRODNum';
+    public $incrementing = true;
 
     protected $connection = 'mysql';
     public $timestamps = false;

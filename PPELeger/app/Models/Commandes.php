@@ -9,8 +9,8 @@ class Commandes extends Model
 {
     protected $table = 'COMMANDES';
 
-    protected $primaryKey = ['MEDICNum', 'MEDNum', 'CLINum', 'DateCde'];
-    public $incrementing = false;
+    protected $primaryKey = 'CdeNum';
+    public $incrementing = true;
 
     protected $connection = 'mysql';
     public $timestamps = false;

@@ -48,8 +48,13 @@ Route::get('/delete-client/{CLINum}', [ClientsController::class, 'deleteClient']
 
 Route::get('/commandes', [CommandesController::class])->name('commandes');
 
-Route::get('/add-commande', [ClientsController::class, 'addCommande'])->name('add-commande');
-Route::post('/create-commande', [CommandeController::class, 'createCommande'])->name('create-commande');
+Route::get('/add-commande', [CommandesController::class, 'addCommande'])->name('add-commande');
+Route::post('/create-commande', [CommandesController::class, 'createCommande'])->name('create-commande');
+
+Route::get('/edit-commande/{CdeNum}', [CommandesController::class], 'editCommande')->name('edit-commande');
+Route::post('/update-commande', [CommandesController::class, 'updateCommande'])->name('update-commande');
+
+Route::get('/delete-commande/{CdeNum}', [CommandesController::class], 'deleteCommande')->name('delete-commande');
 
 
 
