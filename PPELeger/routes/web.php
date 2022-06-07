@@ -118,9 +118,14 @@ Route::get('/delete-production/{PRODNum}', [ProductionController::class, 'delete
 
 
 
-Route::get('/stocks', function () {
-    $stocks = \App\Http\Controllers\StocksController::show();
-    return view('stocks', ["stocks" => $stocks]);
-})->middleware(['auth'])->name('stocks');
+Route::get('/stocks', [StocksController::class, 'getStocks'])->name('stocks');
+
+Route::get('/add-stock', [StocksController::class, 'addStock'])->name('add-stock');
+Route::post('/create-stock', [StocksController::class, 'createStock'])->name('create-stock');
+
+Route::get('/edit-stock{StockNum}', [StockController::class, 'editStock'])->name('edit-stock');
+Route::post('update-stock', [StockController::class, 'updateStock'])->name('update-stock');
+
+Route::get('/delete-stock/{StockNum}', [StockController::class, 'deleteStock'])->name('delete-stock');
 
 require __DIR__.'/auth.php';
