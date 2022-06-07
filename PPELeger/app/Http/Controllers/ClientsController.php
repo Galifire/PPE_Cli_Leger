@@ -7,38 +7,46 @@ use App\Models\Clients;
 
 class ClientsController extends Controller
 {
-    public function show() {
-        return Clients::all();
+    
+    public function getClients() {
+        $clients = Clients::orderBy('CLINum', 'ASC')->get();
+        return view('clients', compact('clients'));
     }
 
-    public function update($num, Request $request) {
-        ddd($request);
-        Clients::where('CLINum', $num)->update([
-            'Nom' => $request->input['nom'],
-            'Prenom' => $request->input['prenom'],
-            'Adresse' => $request->input['adresse'],
-            'Email' => $request->input['email']
-        ])->save();
+    public function addClient() {
+        return view('add-client');
     }
 
-    public function store($request) {
-        Clients::insert([
-            'CLINum' => $_POST['CLINum'],
-            'Nom' => $_POST['Nom'],
-            'Prenom' => $_POST['Prenom'],
-            'Adresse' => $_POST['Adresse'],
-            'Email' => $_POST['Email']
-        ])->save();
+    public function createClient(Request $request) {
+        $client = new Clients();
+        $client->Nom = $request->input('nom');
+        $client->Prenom = $request->input('prenom');
+        $client->Adresse = $request->input('adresse');
+        $client->Email = $request->input('email');
+        $client->Telephone = $request->input('telephone');
+        $client->save();
+        return back()->with('client_created', 'Client has been created successfully');
     }
 
-    public function remove($request) {
-        $client = Clients::where('CLINum', $num)->get();
-        $client->delete();
+    public function editClient(int $id) {
+        $client  = Clients::find($id);
+        return view('edit-client', compact('client'));
     }
 
-    public function findById($id) {
-        $client = Clients::where('CLINum', $id)->get();
-        return $client;
+    public function updateClient(Request $request) {
+        $client = Clients::find($request->input('id'));
+        $client->Nom = $request->input('nom');
+        $client->Prenom = $request->input('prenom');
+        $client->Adresse = $request->input('adresse');
+        $client->Email = $request->input('email');
+        $client->Telephone = $request->input('telephone');
+        $client->save();
+        return back()->with('client_updated', 'Client has been updated successfully');
+    }
+
+    public function deleteClient($id) {
+        Clients::where('CLINum', $id)->delete();
+        return back()->with('client_deleted', 'Client has been deleted successfully');
     }
 
     public function count() {

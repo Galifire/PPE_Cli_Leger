@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clients extends Model
 {
+
+    use HasFactory;
+
     protected $table = 'CLIENTS';
 
     protected $primaryKey = 'CLINum';
@@ -14,6 +17,7 @@ class Clients extends Model
 
     protected $connection = 'mysql';
     protected $keyType = 'int';
-    use HasFactory;
+    
+    public $timestamps = false;
 
 }

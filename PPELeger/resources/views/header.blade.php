@@ -43,10 +43,6 @@
             height: 70px;
             width: 70px;
         }
-
-        .table-row{
-            cursor:pointer;
-        }
     </style>
     <title>Client Léger</title>
 </head>

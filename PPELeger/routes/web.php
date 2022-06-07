@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/clients', [ClientsController::class, 'getClients'])->middleware(['auth'])->name('clients');
+
+Route::get('/add-client', [ClientsController::class, 'addClient'])->name('add-client');
+Route::post('/create-client', [ClientsController::class, 'createClient'])->name('create-client');
+
+Route::get('/edit-post/{CLINum}', [ClientsController::class, 'editClient'])->name('edit-client');
+Route::post('/update-client', [ClientsController::class, 'updateClient'])->name('update-client');
+
+Route::get('/delete-client/{CLINum}', [ClientsController::class, 'deleteClient'])->name('delete-client');
+
+
 Route::get("/pharmacies", function () {
     $pharmacies = \App\Http\Controllers\PharmacieController::show();
     return view('pharmacies', ["pharmacies" => $pharmacies]);
@@ -39,10 +51,7 @@ Route::get('/pharmacies/{PHARCode}', function ($code) {
     return view('effectifInPharmacie', ["pharmaciens" => $pharmaciens]);
 })->where(["PHARCode" => "P[0-9]{3,}"])->middleware(['auth'])->name('effectifInPharmacie');
 
-Route::get('/clients/edit/{CLINum}', function ($num) {
-    $client = \App\Http\Controllers\ClientsController::findById($num);
-    return view('clientEdit', ["client" => $client]);
-})->middleware(['auth'])->name('clientEdit');
+
 
 Route::get('/clients/new', function () {
     return view('clientNew');
@@ -63,10 +72,7 @@ Route::get('/stocks', function () {
     return view('stocks', ["stocks" => $stocks]);
 })->middleware(['auth'])->name('stocks');
 
-Route::get('/clients', function () {
-    $clients = \App\Http\Controllers\ClientsController::show();
-    return view('clients', ["clients" => $clients]);
-})->name('clients');
+
 
 Route::get('/medecins', function () {
     $medecins = \App\Http\Controllers\MedecinsController::show();
