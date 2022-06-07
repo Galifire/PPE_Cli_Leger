@@ -9,9 +9,10 @@ class Medicaments extends Model
 {
     protected $table = 'MEDICAMENTS';
 
-    protected $primaryKey = 'MEDICCode';
-    public $incrementing = false;
+    protected $primaryKey = 'MEDICNum';
+    public $incrementing = true;
 
     protected $connection = 'mysql';
+    public $timestamps = false;
     use HasFactory;
 }

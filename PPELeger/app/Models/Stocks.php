@@ -9,18 +9,19 @@ class Stocks extends Model
 {
     protected $table = 'STOCKS';
 
-    protected $primaryKey = ['PHARCode', 'MEDICCode'];
+    protected $primaryKey = ['PHARNum', 'MEDICNum'];
     public $incrementing = false;
 
     protected $connection = 'mysql';
+    public $timestamps = false;
 
     use HasFactory;
 
     public function Pharmacie() {
-        return $this->belongsTo(Pharmacie::class, 'PHARCode', 'PHARCode');
+        return $this->belongsTo(Pharmacie::class, 'PHARNum', 'PHARNyl');
     }
 
     public function Medicament() {
-        return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
+        return $this->belongsTo(Medicaments::class, 'MEDICNum', 'MEDICNum');
     }
 }

@@ -9,15 +9,16 @@ class Commandes extends Model
 {
     protected $table = 'COMMANDES';
 
-    protected $primaryKey = ['MEDICCode', 'MEDNum', 'CLINum', 'DateCde'];
+    protected $primaryKey = ['MEDICNum', 'MEDNum', 'CLINum', 'DateCde'];
     public $incrementing = false;
 
     protected $connection = 'mysql';
+    public $timestamps = false;
 
     use HasFactory;
 
     public function Medicament() {
-        return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
+        return $this->belongsTo(Medicaments::class, 'MEDICNum', 'MEDICNum');
     }
 
     public function Medecin() {

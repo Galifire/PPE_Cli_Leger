@@ -14,5 +14,7 @@ class Medecins extends Model
 
     protected $connection = 'mysql';
     protected $keyType = 'int';
+    public $timestamps = false;
+    
     use HasFactory;
 }

@@ -9,13 +9,15 @@ class Production extends Model
 {
     protected $table = 'PRODUCTION';
 
-    protected $primaryKey = ['MEDICCode', 'DateProd'];
+    protected $primaryKey = ['MEDICNum', 'DateProd'];
     public $incrementing = false;
 
     protected $connection = 'mysql';
+    public $timestamps = false;
+    
     use HasFactory;
 
     public function Medicament() {
-        return $this->belongsTo(Medicaments::class, 'MEDICCode', 'MEDICCode');
+        return $this->belongsTo(Medicaments::class, 'MEDICNum', 'MEDICNum');
     }
 }
