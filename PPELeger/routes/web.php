@@ -106,15 +106,21 @@ Route::get('/delete-pharmacien/{PHNum}', [PharmacienController::class], 'deleteP
 
 
 
+Route::get('/productions', [ProductionController::class, 'getProductions'])->name('productions');
+
+Route::get('/add-production', [ProductionController::class, 'addProduction'])->name('add-production');
+Route::post('create-production', [ProductionController::class, 'createProduction'])->name('create-production');
+
+Route::get('edit-production/{PRODNum}', [ProductionController::class, 'editProduction'])->name('edit-production');
+Route::post('update-production', [ProductionController::class, 'updateProduction'])->name('update-production');
+
+Route::get('/delete-production/{PRODNum}', [ProductionController::class, 'deleteProduction'])->name('delete-production');
+
+
+
 Route::get('/stocks', function () {
     $stocks = \App\Http\Controllers\StocksController::show();
     return view('stocks', ["stocks" => $stocks]);
 })->middleware(['auth'])->name('stocks');
-
-
-Route::get('/production', function () {
-    $production = \App\Http\Controllers\ProductionController::show();
-    return view('production', ["production" => $production]);
-})->middleware(['auth'])->name('production');
 
 require __DIR__.'/auth.php';
