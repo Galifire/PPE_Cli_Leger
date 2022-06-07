@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\CommandesController;
+use App\Http\Controllers\MedecinsController;
+use App\Http\Controllers\MedicamentsController;
+use App\Http\Controllers\PharmacieController;
+use App\Http\Controllers\PharmacienController;
+use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\StocksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +32,49 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
 Route::get('/clients', [ClientsController::class, 'getClients'])->middleware(['auth'])->name('clients');
 
 Route::get('/add-client', [ClientsController::class, 'addClient'])->name('add-client');
 Route::post('/create-client', [ClientsController::class, 'createClient'])->name('create-client');
 
-Route::get('/edit-post/{CLINum}', [ClientsController::class, 'editClient'])->name('edit-client');
+Route::get('/edit-client/{CLINum}', [ClientsController::class, 'editClient'])->name('edit-client');
 Route::post('/update-client', [ClientsController::class, 'updateClient'])->name('update-client');
 
 Route::get('/delete-client/{CLINum}', [ClientsController::class, 'deleteClient'])->name('delete-client');
+
+
+
+Route::get('/commandes', [CommandesController::class])->name('commandes');
+
+Route::get('/add-commande', [ClientsController::class, 'addCommande'])->name('add-commande');
+Route::post('/create-commande', [CommandeController::class, 'createCommande'])->name('create-commande');
+
+
+
+Route::get('/medecins', [MedecinsController::class, 'getMedecins'])->name('medecins');
+
+Route::get('/add-medecin', [MedecinsController::class, 'addMedecin'])->name('add-medecin');
+Route::post('/create-medecin', [MedecinsController::class, 'createMedecin'])->name('create-medecin');
+
+Route::get('/edit-medecin/{MEDNum}', [MedecinsController::class, 'editMedecin'])->name('edit-medecin');
+Route::post('/update-medecin', [MedecinsController::class, 'updateMedecin'])->name('update-medecin');
+
+Route::get('/delete-medecin/{MEDNum}', [MedecinsController::class, 'deleteMedecin'])->name('delete-medecin');
+
+
+
+Route::get('/medicaments', [MedicamentsController::class, 'getMedicaments'])->name('medicaments');
+
+Route::get('/add-medicament', [MedicamentsController::class, 'addMedicament'])->name('add-medicament');
+Route::post('/create-medicament', [MedicamentsController::class, 'createMedicament'])->name('create-medicament');
+
+Route::get('/edit-medicament/{MEDICNum}', [MedicamentsController::class, 'editMedicament'])->name('edit-medicament');
+Route::post('/update-medicament', [MedicamentsController::class, 'updateMedicament'])->name('update-medicament');
+
+Route::get('/delete-medicament/{MEDICNum}', [MedicamentsController::class, 'deleteMedicament'])->name('delete-medicament');
+
 
 
 Route::get("/pharmacies", function () {
@@ -51,33 +92,11 @@ Route::get('/pharmacies/{PHARCode}', function ($code) {
     return view('effectifInPharmacie', ["pharmaciens" => $pharmaciens]);
 })->where(["PHARCode" => "P[0-9]{3,}"])->middleware(['auth'])->name('effectifInPharmacie');
 
-
-
-Route::get('/clients/new', function () {
-    return view('clientNew');
-})->middleware(['auth'])->name('clientNew');
-
-Route::get('/medicaments', function () {
-    $medics = \App\Http\Controllers\MedicamentsController::show();
-    return view('medicaments', ["medics" => $medics]);
-})->middleware(['auth'])->name('medicaments');
-
-Route::get('/commandes', function () {
-    $cdes = \App\Http\Controllers\CommandesController::show();
-    return view('commandes', ["cdes" => $cdes]);
-})->middleware(['auth'])->name('commandes');
-
 Route::get('/stocks', function () {
     $stocks = \App\Http\Controllers\StocksController::show();
     return view('stocks', ["stocks" => $stocks]);
 })->middleware(['auth'])->name('stocks');
 
-
-
-Route::get('/medecins', function () {
-    $medecins = \App\Http\Controllers\MedecinsController::show();
-    return view('medecins', ["medecins" => $medecins]);
-})->middleware(['auth'])->name('medecins');
 
 Route::get('/production', function () {
     $production = \App\Http\Controllers\ProductionController::show();

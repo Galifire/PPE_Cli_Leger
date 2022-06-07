@@ -9,9 +9,9 @@
                         <a href={{route('add-client')}} class="btn btn-success">Add Client</a>
                     </div>             
                     <div class="card-body">
-                        @if (Session::has('post_deleted'))
+                        @if (Session::has('client_deleted'))
                             <div class="alert alert-success" role="alert">
-                                {{Session::get('post_deleted')}}
+                                {{Session::get('client_deleted')}}
                             </div>
                         @endif
                         <table class="table table-striped">

@@ -7,9 +7,48 @@ use App\Models\Commandes;
 
 class CommandesController extends Controller
 {
-    public function show() {
-        return Commandes::all();
+    public function getCommandes() {
+        $commandes = Commandes::all()->get();
+        return view('commandes', compact('commandes'));
     }
 
-    public function store() {}
+    public function addCommande() {
+        return view('add-commande');
+    }
+
+    public function createCommande(Request $request) {
+        $commande = new Commandes();
+        $commande->MEDICNum = $request->input('medicnum');
+        $commande->MEDNum = $request->input('mednum');
+        $commande->CLINum = $request->input('clinum');
+        $commande->DateCde = $request->input('datecde');
+        $commande->Qte = $request->input('qte');
+        $commande->save();
+        return back()->with('commande_created', 'command has been created successfully');
+    }
+
+    /*public function editCommande(int $id) {
+        $commande  = Commandes::find($id);
+        return view('edit-commande', compact('commande'));
+    }
+
+    public function updateCommande(Request $request) {
+        $commande = Commandes::find($request->input('id'));
+        $commande->Nom = $request->input('nom');
+        $commande->Prenom = $request->input('prenom');
+        $commande->Adresse = $request->input('adresse');
+        $commande->Email = $request->input('email');
+        $commande->Telephone = $request->input('telephone');
+        $commande->save();
+        return back()->with('commande_updated', 'commande has been updated successfully');
+    }
+
+    public function deleteCommande($id) {
+        commandes::where('CLINum', $id)->delete();
+        return back()->with('commande_deleted', 'commande has been deleted successfully');
+    }*/
+
+    public function count() {
+        return commandes::count();
+    }
 }
