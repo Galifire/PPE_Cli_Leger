@@ -25,7 +25,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                        @foreach ($production as $p)
+                        @foreach ($productions as $p)
                             <tr>
                                 <th scope="row">{{$p->PRODNum}}</th>
                                 <td>{{$p->MEDICNum}}</td>

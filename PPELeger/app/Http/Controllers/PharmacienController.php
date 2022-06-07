@@ -8,7 +8,7 @@ use App\Models\Pharmacien;
 class PharmacienController extends Controller
 {
     public function getPharmaciens() {
-        $pharmaciens = Pharmacien::orderBy('CLINum', 'ASC')->get();
+        $pharmaciens = Pharmacien::orderBy('PHNum', 'ASC')->get();
         return view('pharmaciens', compact('pharmaciens'));
     }
 
@@ -29,7 +29,7 @@ class PharmacienController extends Controller
 
     public function editPharmacien(int $id) {
         $pharmacien  = Pharmacien::find($id);
-        return view('edit-pharmacien', compact('client'));
+        return view('edit-pharmacien', compact('pharmacien'));
     }
 
     public function updatePharmacien(Request $request) {

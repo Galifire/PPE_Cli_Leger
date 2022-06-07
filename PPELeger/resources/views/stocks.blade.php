@@ -25,15 +25,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                        @foreach ($stock as $s)
+                        @foreach ($stocks as $s)
                             <tr>
-                                <th scope="row">{{$s->PRODNum}}</th>
+                                <th scope="row">{{$s->StockNum}}</th>
+                                <td>{{$s->PHARNum}}</td>
                                 <td>{{$s->MEDICNum}}</td>
-                                <td>{{$s->DateProd}}</td>
                                 <td>{{$s->Qte}}</td>
                                 <td>
-                                    <a href={{route('edit-stock', $s->PRODNum)}} class="btn btn-outline-warning">Edit</a>
-                                    <a href={{route('delete-stock', $s->PRODNum)}} class="btn btn-outline-danger">Delete</a>
+                                    <a href={{route('edit-stock', $s->StockNum)}} class="btn btn-outline-warning">Edit</a>
+                                    <a href={{route('delete-stock', $s->StockNum)}} class="btn btn-outline-danger">Delete</a>
                                 </td>
                             <tr>
                         @endforeach

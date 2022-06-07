@@ -16,7 +16,7 @@ class StocksController extends Controller
     }
 
     public function createStock(Request $request) {
-        $stock = new Stock();
+        $stock = new Stocks();
         $stock->PHARNum = $request->input('pharnum');
         $stock->MEDICNum = $request->input('medicnum');
         $stock->Qte = $request->input('qte');
@@ -25,12 +25,12 @@ class StocksController extends Controller
     }
 
     public function editStock(int $id) {
-        $stock  = Stock::find($id);
-        return view('edit-client', compact('client'));
+        $stock  = Stocks::find($id);
+        return view('edit-stock', compact('stock'));
     }
 
     public function updateStock(Request $request) {
-        $stock = Stock::find($request->input('id'));
+        $stock = Stocks::find($request->input('id'));
         $stock->PHARNum = $request->input('pharnum');
         $stock->MEDICNum = $request->input('medicnum');
         $stock->Qte = $request->input('qte');
@@ -39,11 +39,11 @@ class StocksController extends Controller
     }
 
     public function deleteStock($id) {
-        Stock::where('PRODNum', $id)->delete();
+        Stocks::where('StockNum', $id)->delete();
         return back()->with('stock_deleted', 'Stock has been deleted successfully');
     }
 
     public function count() {
-        return Stock::count();
+        return Stocks::count();
     }
 }

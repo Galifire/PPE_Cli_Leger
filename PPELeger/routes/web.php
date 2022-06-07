@@ -46,15 +46,15 @@ Route::get('/delete-client/{CLINum}', [ClientsController::class, 'deleteClient']
 
 
 
-Route::get('/commandes', [CommandesController::class])->name('commandes');
+Route::get('/commandes', [CommandesController::class, 'getCommandes'])->name('commandes');
 
 Route::get('/add-commande', [CommandesController::class, 'addCommande'])->name('add-commande');
 Route::post('/create-commande', [CommandesController::class, 'createCommande'])->name('create-commande');
 
-Route::get('/edit-commande/{CdeNum}', [CommandesController::class], 'editCommande')->name('edit-commande');
+Route::get('/edit-commande/{CdeNum}', [CommandesController::class, 'editCommande'])->name('edit-commande');
 Route::post('/update-commande', [CommandesController::class, 'updateCommande'])->name('update-commande');
 
-Route::get('/delete-commande/{CdeNum}', [CommandesController::class], 'deleteCommande')->name('delete-commande');
+Route::get('/delete-commande/{CdeNum}', [CommandesController::class, 'deleteCommande'])->name('delete-commande');
 
 
 
@@ -87,10 +87,10 @@ Route::get('/pharmacies', [PharmacieController::class, 'getPharmacies'])->name('
 Route::get('/add-pharmacie', [PharmacieController::class, 'addPharmacie'])->name('add-pharmacie');
 Route::post('/create-pharmacie', [PharmacieController::class, 'createPharmacie'])->name('create-pharmacie');
 
-Route::get('/edit-pharmacie{PHNum}', [PharmacieController::class, 'editPharmacie'])->name('edit-pharmacie');
-Route::post('/update-pharmacie', [PharmacieController::class], 'updatePharmacie')->name('update-pharmacie');
+Route::get('/edit-pharmacie/{PHNum}', [PharmacieController::class, 'editPharmacie'])->name('edit-pharmacie');
+Route::post('/update-pharmacie', [PharmacieController::class, 'updatePharmacie'])->name('update-pharmacie');
 
-Route::get('/delete-pharmacie/{PHNum}', [PharmacieController::class], 'deletePharmacie')->name('delete-pharmacie');
+Route::get('/delete-pharmacie/{PHNum}', [PharmacieController::class, 'deletePharmacie'])->name('delete-pharmacie');
 
 
 
@@ -99,17 +99,17 @@ Route::get('/pharmaciens', [PharmacienController::class, 'getPharmaciens'])->nam
 Route::get('/add-pharmacien', [PharmacienController::class, 'addPharmacien'])->name('add-pharmacien');
 Route::post('/create-pharmacien', [PharmacienController::class, 'createPharmacien'])->name('create-pharmacien');
 
-Route::get('/edit-pharmacien{PHNum}', [PharmacienController::class, 'editPharmacien'])->name('edit-pharmacien');
-Route::post('/update-pharmacien', [PharmacienController::class], 'updatePharmacien')->name('update-pharmacien');
+Route::get('/edit-pharmacien/{PHNum}', [PharmacienController::class, 'editPharmacien'])->name('edit-pharmacien');
+Route::post('/update-pharmacien', [PharmacienController::class, 'updatePharmacien'])->name('update-pharmacien');
 
-Route::get('/delete-pharmacien/{PHNum}', [PharmacienController::class], 'deletePharmacien')->name('delete-pharmacien');
+Route::get('/delete-pharmacien/{PHNum}', [PharmacienController::class, 'deletePharmacien'])->name('delete-pharmacien');
 
 
 
 Route::get('/productions', [ProductionController::class, 'getProductions'])->name('productions');
 
 Route::get('/add-production', [ProductionController::class, 'addProduction'])->name('add-production');
-Route::post('create-production', [ProductionController::class, 'createProduction'])->name('create-production');
+Route::post('/create-production', [ProductionController::class, 'createProduction'])->name('create-production');
 
 Route::get('edit-production/{PRODNum}', [ProductionController::class, 'editProduction'])->name('edit-production');
 Route::post('update-production', [ProductionController::class, 'updateProduction'])->name('update-production');
@@ -123,9 +123,9 @@ Route::get('/stocks', [StocksController::class, 'getStocks'])->name('stocks');
 Route::get('/add-stock', [StocksController::class, 'addStock'])->name('add-stock');
 Route::post('/create-stock', [StocksController::class, 'createStock'])->name('create-stock');
 
-Route::get('/edit-stock{StockNum}', [StockController::class, 'editStock'])->name('edit-stock');
-Route::post('update-stock', [StockController::class, 'updateStock'])->name('update-stock');
+Route::get('/edit-stock/{StockNum}', [StocksController::class, 'editStock'])->name('edit-stock');
+Route::post('/update-stock', [StocksController::class, 'updateStock'])->name('update-stock');
 
-Route::get('/delete-stock/{StockNum}', [StockController::class, 'deleteStock'])->name('delete-stock');
+Route::get('/delete-stock/{StockNum}', [StocksController::class, 'deleteStock'])->name('delete-stock');
 
 require __DIR__.'/auth.php';

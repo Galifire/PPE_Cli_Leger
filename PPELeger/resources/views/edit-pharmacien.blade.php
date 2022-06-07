@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
-                    <div class="card-header">Mettre à jour le pharmacien {{$pharmacien->PHARNum}}</div>                   
+                    <div class="card-header">Mettre à jour le pharmacien {{$pharmacien->PHNum}}</div>                   
                     <div class="card-body">
                         @if(Session::has('pharmacien_updated'))
                             <div class="alert alert-success" role="alert">
@@ -16,7 +16,7 @@
                         <form method="POST" action="{{route('update-pharmacien')}}">
                             @csrf
                             <div class="form-group">
-                                <input type="hidden" name="id" class="form-control" value={{$pharmacien->PHARNum}}>
+                                <input type="hidden" name="id" class="form-control" value={{$pharmacien->PHNum}}>
                             </div>
                             <div class="form-group">
                                 <label for="Nom">Nom du pharmacien</label>

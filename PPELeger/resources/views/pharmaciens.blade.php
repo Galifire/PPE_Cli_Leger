@@ -28,9 +28,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pharmacies as $p)
+                                @foreach ($pharmaciens as $p)
                                 <tr>
-                                    <th scope="row">{{$p->PHARNum}}</th>
+                                    <th scope="row">{{$p->PHNum}}</th>
                                     <td>{{$p->Nom}}</td>
                                     <td>{{$p->Prenom}}</td>
                                     <td>{{$p->Email}}</td>

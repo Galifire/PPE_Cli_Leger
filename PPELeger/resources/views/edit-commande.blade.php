@@ -13,7 +13,7 @@
                                 {{Session::get('commande_created')}}
                             </div>
                         @endif
-                        <form method="POST" action="{{route('create-commande')}}">
+                        <form method="POST" action="{{route('update-commande')}}">
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="id" class="form-control" value={{$commande->CdeNum}}>

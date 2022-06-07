@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
-                    <div class="card-header">Mettre à jour la production {{$production->CdeNum}}</div>                   
+                    <div class="card-header">Mettre à jour la production {{$production->PRODNum}}</div>                   
                     <div class="card-body">
                         @if(Session::has('production_updated'))
                             <div class="alert alert-success" role="alert">
@@ -16,7 +16,7 @@
                         <form method="POST" action="{{route('update-production')}}">
                             @csrf
                             <div class="form-group">
-                                <input type="hidden" name="id" class="form-control" value={{$production->CdeNum}}>
+                                <input type="hidden" name="id" class="form-control" value={{$production->PRODNum}}>
                             </div>
                             <div class="form-group">
                                 <label for="MEDICNum">Numéro du médicament</label>

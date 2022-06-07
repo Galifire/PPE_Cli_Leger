@@ -16,12 +16,12 @@
                         <form method="POST" action="{{route('create-stock')}}">
                             @csrf
                             <div class="form-group">
-                                <label for="MEDICNum">Numéro du médicament</label>
-                                <input type="text" name="medicnum" class="form-control" placeholder="Entrez le numéro du médicament">
+                                <label for="PHARNum">Numéro de la pharmacie</label>
+                                <input type="text" name="pharnum" class="form-control" placeholder="Entrez le numéro de la pharmacie">
                             </div>
                             <div class="form-group">
-                                <label for="DateProd">Date de stock</label>
-                                <input type="text" name="dateprod" class="form-control" placeholder="Entrez la date de début de stock">
+                                <label for="MEDICNum">Numéro du médicament</label>
+                                <input type="text" name="medicnum" class="form-control" placeholder="Entrez le numéro du médicament">
                             </div>
                             <div class="form-group">
                                 <label for="Adresse">Quantité</label>

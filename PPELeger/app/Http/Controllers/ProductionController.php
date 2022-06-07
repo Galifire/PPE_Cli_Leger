@@ -13,13 +13,13 @@ class ProductionController extends Controller
     }
 
     public function addProduction() {
-        return view('add-client');
+        return view('add-production');
     }
 
     public function createProduction(Request $request) {
         $production = new Production();
-        $production->PHARNum = $request->input('pharnum');
         $production->MEDICNum = $request->input('medicnum');
+        $production->DateProd = $request->input('dateprod');
         $production->Qte = $request->input('qte');
         $production->save();
         return back()->with('production_created', 'Production has been created successfully');
@@ -27,13 +27,13 @@ class ProductionController extends Controller
 
     public function editProduction(int $id) {
         $production  = Production::find($id);
-        return view('edit-client', compact('client'));
+        return view('edit-production', compact('production'));
     }
 
     public function updateProduction(Request $request) {
         $production = Production::find($request->input('id'));
-        $production->PHARNum = $request->input('pharnum');
         $production->MEDICNum = $request->input('medicnum');
+        $production->DateProd = $request->input('dateprod');
         $production->Qte = $request->input('qte');
         $production->save();
         return back()->with('production_updated', 'Production has been updated successfully');

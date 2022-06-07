@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card text-center">
                     <div class="card-header">
-                        <a href={{route('add-production')}} class="btn btn-success">Ajouter une commande</a>
+                        <a href={{route('add-commande')}} class="btn btn-success">Ajouter une commande</a>
                     </div>             
                     <div class="card-body">
                         @if (Session::has('commande_deleted'))

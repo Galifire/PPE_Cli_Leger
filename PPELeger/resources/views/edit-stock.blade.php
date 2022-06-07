@@ -19,12 +19,12 @@
                                 <input type="hidden" name="id" class="form-control" value={{$stock->StockNum}}>
                             </div>
                             <div class="form-group">
-                                <label for="MEDICNum">Numéro du médicament</label>
-                                <input type="text" name="medicnum" class="form-control" placeholder="Entrez le numéro du médicament" value={{$stock->MEDICNum}}>
+                                <label for="PHARNum">Numéro de la pharmacie</label>
+                                <input type="text" name="pharnum" class="form-control" placeholder="Entrez le numéro de la pharmacie" value={{$stock->PHARNum}}>
                             </div>
                             <div class="form-group">
-                                <label for="DateProd">Date de stock</label>
-                                <input type="text" name="dateprod" class="form-control" placeholder="Entrez la date de début de stock" value={{$stock->DateProd}}>
+                                <label for="MEDICNum">Numéro du médicament</label>
+                                <input type="text" name="medicnum" class="form-control" placeholder="Entrez le numéro du médicament" value={{$stock->MEDICNum}}>
                             </div>
                             <div class="form-group">
                                 <label for="Adresse">Quantité</label>

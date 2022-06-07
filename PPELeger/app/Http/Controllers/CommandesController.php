@@ -8,7 +8,7 @@ use App\Models\Commandes;
 class CommandesController extends Controller
 {
     public function getCommandes() {
-        $commandes = Commandes::all()->get();
+        $commandes = Commandes::orderBy('CdeNum', 'ASC')->get();
         return view('commandes', compact('commandes'));
     }
 
@@ -44,7 +44,7 @@ class CommandesController extends Controller
     }
 
     public function deleteCommande($id) {
-        commandes::where('CLINum', $id)->delete();
+        commandes::where('CdeNum', $id)->delete();
         return back()->with('commande_deleted', 'commande has been deleted successfully');
     }
 

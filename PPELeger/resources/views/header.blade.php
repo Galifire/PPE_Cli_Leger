@@ -52,13 +52,13 @@
               
             <ul class="nav col-16 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href={{route('welcome')}} class="nav-link px-16 link-secondary">Home Page</a></li>
-                <li><a href={{route('pharmacies')}} class="nav-link px-16 link-dark">Pharmacies</a></li>
-                <li><a href={{route('pharmaciens')}} class="nav-link px-16 link-dark">Pharmaciens</a></li>
-                <li><a href={{route('medicaments')}} class="nav-link px-16 link-dark">Médicaments</a></li>
                 <li><a href={{route('clients')}} class="nav-link px-16 link-dark">Clients</a></li>
                 <li><a href={{route('commandes')}} class="nav-link px-16 link-dark">Commandes</a></li>
                 <li><a href={{route('medecins')}} class="nav-link px-16 link-dark">Médecins</a></li>
-                <li><a href={{route('production')}} class="nav-link px-16 link-dark">Production</a></li>
+                <li><a href={{route('medicaments')}} class="nav-link px-16 link-dark">Médicaments</a></li>
+                <li><a href={{route('pharmacies')}} class="nav-link px-16 link-dark">Pharmacies</a></li>
+                <li><a href={{route('pharmaciens')}} class="nav-link px-16 link-dark">Pharmaciens</a></li>
+                <li><a href={{route('productions')}} class="nav-link px-16 link-dark">Production</a></li>
                 <li><a href={{route('stocks')}} class="nav-link px-16 link-dark">Stocks</a></li>
             </ul>
             @if (Route::has('login'))
