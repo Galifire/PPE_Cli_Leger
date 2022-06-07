@@ -16,7 +16,7 @@
                         <form method="POST" action="{{route('update-client'), $client->CLINum}}">
                             @csrf
                             <div class="form-group">
-                                <input type="hidden" name="id" class="form-control" placeholder="Entrez le nom du client" value={{$client->CLINum}}>
+                                <input type="hidden" name="id" class="form-control" value={{$client->CLINum}}>
                             </div>
                             <div class="form-group">
                                 <label for="Nom">Nom du client</label>

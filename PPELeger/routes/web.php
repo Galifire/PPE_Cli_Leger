@@ -77,20 +77,29 @@ Route::get('/delete-medicament/{MEDICNum}', [MedicamentsController::class, 'dele
 
 
 
-Route::get("/pharmacies", function () {
-    $pharmacies = \App\Http\Controllers\PharmacieController::show();
-    return view('pharmacies', ["pharmacies" => $pharmacies]);
-})->name('pharmacies');
+Route::get('/pharmacies', [PharmacieController::class, 'getPharmacies'])->name('pharmacies');
 
-Route::get("/pharmaciens", function () {
-    $pharmaciens = \App\Http\Controllers\PharmacienController::show();
-    return view('pharmaciens', ["pharmaciens" => $pharmaciens]);
-})->middleware(['auth'])->name("pharmaciens");
+Route::get('/add-pharmacie', [PharmacieController::class, 'addPharmacie'])->name('add-pharmacie');
+Route::post('/create-pharmacie', [PharmacieController::class, 'createPharmacie'])->name('create-pharmacie');
 
-Route::get('/pharmacies/{PHARCode}', function ($code) {
-    $pharmaciens = \App\Http\Controllers\PharmacienController::findByPharmacieId($code);
-    return view('effectifInPharmacie', ["pharmaciens" => $pharmaciens]);
-})->where(["PHARCode" => "P[0-9]{3,}"])->middleware(['auth'])->name('effectifInPharmacie');
+Route::get('/edit-pharmacie{PHNum}', [PharmacieController::class, 'editPharmacie'])->name('edit-pharmacie');
+Route::post('/update-pharmacie', [PharmacieController::class], 'updatePharmacie')->name('update-pharmacie');
+
+Route::get('/delete-pharmacie/{PHNum}', [PharmacieController::class], 'deletePharmacie')->name('delete-pharmacie');
+
+
+
+Route::get('/pharmaciens', [PharmacienController::class, 'getPharmaciens'])->name('pharmaciens');
+
+Route::get('/add-pharmacien', [PharmacienController::class, 'addPharmacien'])->name('add-pharmacien');
+Route::post('/create-pharmacien', [PharmacienController::class, 'createPharmacien'])->name('create-pharmacien');
+
+Route::get('/edit-pharmacien{PHNum}', [PharmacienController::class, 'editPharmacien'])->name('edit-pharmacien');
+Route::post('/update-pharmacien', [PharmacienController::class], 'updatePharmacien')->name('update-pharmacien');
+
+Route::get('/delete-pharmacien/{PHNum}', [PharmacienController::class], 'deletePharmacien')->name('delete-pharmacien');
+
+
 
 Route::get('/stocks', function () {
     $stocks = \App\Http\Controllers\StocksController::show();
